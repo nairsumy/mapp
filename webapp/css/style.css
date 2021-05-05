@@ -1,0 +1,37 @@
+/* Enter your custom styles here */
+
+.HeaderTitle1{
+    background-color: #6ba90f;
+    border-radius: 6px;
+    color:aliceblue
+}
+
+.HeaderTileText1{
+    color: #EAE2B7;
+}
+
+
+.HeaderTileStatusText1{
+    color:#FFFFFF;
+}
+
+.HBold{
+    font-weight: bold;
+}
+
+
+.equalColumns1 {
+
+    background-color:#96B269;
+   
+}
+
+.equalColumns2 {
+
+    background-color: #DBEFBC;
+    color:aliceblue
+}
+
+.SimpleFormTitle1{
+    color: #EAE2B7;
+}

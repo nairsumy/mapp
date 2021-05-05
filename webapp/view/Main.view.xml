@@ -1,0 +1,203 @@
+<mvc:View controllerName="ux.dashboard.controller.Main" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}" showHeader="false">
+					<content>
+						<!-- Initial page for the dashboard -->
+						<VBox>
+							<HBox>
+								<!-- section 1 -->
+								<Image src="https://aca-prod.accela.com/PALOALTO/Customization/PALOALTO/logo_low.jpg" width="350px" height="100px" />
+								<!-- Date Picker -->
+								<DateTimePicker id="idDate" placeHolder="Select the Date" change="handleChange" class="sapUiTinyMarginTop sapUiTinyMarginBeginEnd" />
+							</HBox>
+
+							<HBox>
+							<IconTabBar id="idTabs" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding">
+								<items>
+									<IconTabFilter icon="sap-icon://bbyd-dashboard" key="dashboard" text="Dashboard">
+									
+									<HBox height="">
+										<!-- Start of main VBox -->
+										<VBox id="tilecontainer" >
+											<HBox class="sapUiResponsiveContentPadding">
+												<!-- Represents the two rows of the tiles -->
+												<!-- BW Tile (1) -->
+												<f:SimpleForm id="BWtile" class="equalColumns1" title="BW" maxContainerCols="1" editable="false" layout="ResponsiveLayout">
+													<VBox id="BWContainer">
+														<HBox >
+															<Text class=" sapUiMediumMarginTop  sapUiSmallMarginBegin " text="Queue Depth" />
+															<NumericContent id="bwnumid" class="sapUiSmallMarginBegin sapUiTinyMarginTop" value="800" valueColor="Error" indicator="None" state="Loaded" press="onOpenQueueDialog" />
+														</HBox>
+														<List id="BWlist" class="sapUiTinyMarginBottom"  >
+															<StandardListItem id="bwsys" title="System Errors" type="Active" press="onOpenListDialog" info="12" infoState="Error" />
+															<StandardListItem id="bwapp" title="App Errors" type="Active" press="onOpenAppDialog" info="129" infoState="Error" />
+															<StandardListItem id="bwthread" title="No. of Threads" info="10" infoState="Error" />
+														</List>
+														<HBox>
+															<Label class="sapUiTinyMarginBegin" text="Updated at:"/>
+															<Text text = "Saturday 5/1/2021 at 10:30AM" />
+														</HBox>
+													
+													</VBox>
+												</f:SimpleForm>
+
+
+												<!-- CRM Tile (2) -->
+												<f:SimpleForm id="CRMtile" class="equalColumns2" title="CRM" maxContainerCols="1" editable="false" layout="ResponsiveLayout">
+													<VBox id="CRMContainer">
+														<HBox>
+															<Text class="sapUiMediumMarginTop sapUiSmallMarginBegin " text="Queue Depth" />
+															<NumericContent id="crmnumid" class="hBold sapUiSmallMarginBegin sapUiTinyMarginTop" value="250" valueColor="Error" indicator="None" state="Loaded" press="onOpenQueueDialog" />
+														</HBox>
+														<List id="CRMlist" class="sapUiTinyMarginBottom" headerText="">
+															<StandardListItem id="crmsys" title="System Errors" type="Active" press="onOpenListDialog" info="12" infoState="Error" />
+															<StandardListItem id="crmapp" title="App Errors" type="Active" press="onOpenAppDialog" info="129" infoState="Error" />
+															<StandardListItem id="crmthread" title="No. of Threads" info="10" infoState="Error" />
+														</List>
+														<HBox>
+															<Label class="sapUiTinyMarginBegin" text="Updated at:"/>
+															<Text text = "Saturday 5/1/2021 at 10:30AM" />
+														</HBox>
+													</VBox>
+												</f:SimpleForm>
+
+
+												<!-- AWS Tile(3) -->
+												<f:SimpleForm id="AWStile" class="equalColumns1" title="AWS" maxContainerCols="1" editable="false" layout="ResponsiveLayout">
+													<VBox id="AWSContainer">
+														<HBox>
+															<Text class="sapUiMediumMarginTop " text="Queue Depth" />
+															<NumericContent id="awsnumid" class="sapUiSmallMarginBegin sapUiTinyMarginTop" value="323" valueColor="Error" indicator="None" state="Loaded" press="onOpenQueueDialog" />
+														</HBox>
+														<List id="AWSlist" class="sapUiTinyMarginBottom">
+															<StandardListItem id="awssys" title="System Errors" type="Active" press="onOpenListDialog" info="12" infoState="Error" />
+															<StandardListItem id="awsapp" title="App Errors" type="Active" press="onOpenAppDialog" info="129" infoState="Error" />
+															<StandardListItem id="awsthread" title="No. of Threads" info="10" infoState="Error" />
+														</List>
+														<HBox>
+															<Label class="sapUiTinyMarginBegin" text="Updated at:"/>
+															<Text text = "Saturday 5/1/2021 at 10:30AM" />
+														</HBox>
+													</VBox>
+												</f:SimpleForm>
+
+
+												<!-- HCM Tile (4) -->
+												<f:SimpleForm id="HCMtile" class="equalColumns2 " title="HCM" maxContainerCols="1" editable="false" layout="ResponsiveLayout">
+													<VBox id="HCMContainer">
+														<HBox>
+															<Text class="sapUiMediumMarginTop  " text="Queue Depth" />
+															<NumericContent id="hcmnumid" class="sapUiSmallMarginBegin sapUiTinyMarginTop" value="500" valueColor="Error" indicator="None" state="Loaded" press="onOpenQueueDialog" />
+														</HBox>
+														<List id="HCMlist" class="sapUiTinyMarginBottom">
+															<StandardListItem id="hcmsys" title="System Errors" type="Active" press="onOpenListDialog" info="12" infoState="Error" />
+															<StandardListItem id="hcmapp" title="App Errors" type="Active" press="onOpenAppDialog" info="129" infoState="Error" />
+															<StandardListItem id="hcmthread" title="No. of Threads" info="10" infoState="Error" />
+														</List>
+														<HBox>
+															<Label class="sapUiTinyMarginBegin" text="Updated at:"/>
+															<Text text = "Saturday 5/1/2021 at 10:30AM" />
+														</HBox>
+													</VBox>
+												</f:SimpleForm>
+											</HBox>
+
+												<!-- SECOND ROW of tiles -->
+											<HBox class="sapUiResponsiveContentPadding">
+												<!-- Azure Tile (1) -->
+												<f:SimpleForm id="AZtile" class="equalColumns1 " title="Azure" maxContainerCols="1" editable="false" layout="ResponsiveLayout">
+													<VBox id="AZContainer">
+														<HBox>
+															<Text class="sapUiMediumMarginTop" text="Queue Depth" />
+															<NumericContent id="aznumid" class="sapUiSmallMarginBegin sapUiTinyMarginTop" value="200" valueColor="Error" indicator="None" state="Loaded" press="onOpenQueueDialog" />
+														</HBox>
+														<List id="AZlist" class="sapUiTinyMarginBottom">
+															<StandardListItem id="azsys" title="System Errors" type="Active" press="onOpenListDialog" info="12" infoState="Error" />
+															<StandardListItem id="azapp" title="App Errors" type="Active" press="onOpenAppDialog" info="129" infoState="Error" />
+															<StandardListItem id="azthread" title="No. of Threads" info="10" infoState="Error" />
+														</List>
+														<HBox>
+															<Label class="sapUiTinyMarginBegin" text="Updated at:"/>
+															<Text text = "Saturday 5/1/2021 at 10:30AM" />
+														</HBox>
+													</VBox>
+												</f:SimpleForm>
+
+
+												<!-- ABAP Tile (2) -->
+												<f:SimpleForm id="ABAPtile" class="equalColumns2 " title="ABAP" maxContainerCols="1" editable="false" layout="ResponsiveLayout">
+													<VBox id="ABAPContainer">
+														<HBox>
+															<Text class="sapUiMediumMarginTop " text="Queue Depth" />
+															<NumericContent id="abapnumid" class="sapUiSmallMarginBegin sapUiTinyMarginTop" value="1800" valueColor="Error" indicator="None" state="Loaded" press="onOpenQueueDialog" />
+														</HBox>
+														<List id="ABAPlist" class="sapUiTinyMarginBottom">
+															<StandardListItem id="abapsys" title="System Errors" type="Active" press="onOpenListDialog" info="12" infoState="Error" />
+															<StandardListItem id="abapapp" title="App Errors" type="Active" press="onOpenAppDialog" info="129" infoState="Error" />
+															<StandardListItem id="abapthread" title="No. of Threads" info="10" infoState="Error" />
+														</List>
+														<HBox>
+															<Label class="sapUiTinyMarginBegin" text="Updated at:"/>
+															<Text text = "Saturday 5/1/2021 at 10:30AM" />
+														</HBox>
+													</VBox>
+
+												</f:SimpleForm>
+
+
+												<!-- SalesForce Tile(3) -->
+												<f:SimpleForm id="SFtile" class="equalColumns1 " title="SalesForce" maxContainerCols="1" editable="false" layout="ResponsiveLayout">
+													<VBox id="SFContainer">
+														<HBox>
+															<Text class="sapUiMediumMarginTop  " text="Queue Depth" />
+															<NumericContent id="sfnumid" class="sapUiSmallMarginBegin sapUiTinyMarginTop" value="174" valueColor="Error" indicator="None" state="Loaded" press="onOpenQueueDialog" />
+														</HBox>
+														<List id="SFlist" class="sapUiTinyMarginBottom">
+															<StandardListItem id="sfsys" title="System Errors" type="Active" press="onOpenListDialog" info="12" infoState="Error" />
+															<StandardListItem id="sfapp" title="App Errors" type="Active" press="onOpenAppDialog" info="129" infoState="Error" />
+															<StandardListItem id="sfthread" title="No. of Threads" info="10" infoState="Error" />
+														</List>
+														<HBox>
+															<Label class="sapUiTinyMarginBegin" text="Updated at:"/>
+															<Text text = "Saturday 5/1/2021 at 10:30AM" />
+														</HBox>
+													</VBox>
+												</f:SimpleForm>
+
+												<!-- Fiori Tile (4) -->
+												<f:SimpleForm id="Fioritile" class="equalColumns2" title="Fiori" maxContainerCols="1" editable="false" layout="ResponsiveLayout">
+													<VBox id="FioriContainer">
+														<HBox>
+															<Text class="sapUiMediumMarginTop " text="Queue Depth" />
+															<NumericContent id="fiorinumid" class="sapUiSmallMarginBegin sapUiTinyMarginTop" value="30" valueColor="Error" indicator="None" state="Loaded" press="onOpenQueueDialog" />
+														</HBox>
+														<List id="Fiorilist" class="sapUiTinyMarginBottom">
+															<StandardListItem id="fiorisys" title="System Errors" type="Active" press="onOpenListDialog" info="12" infoState="Error" />
+															<StandardListItem id="fioriapp" title="App Errors" type="Active" press="onOpenAppDialog" info="129" infoState="Error" />
+															<StandardListItem id="fiorithread" title="No. of Threads" info="10" infoState="Error" />
+														</List>
+														<HBox>
+															<Label class="sapUiTinyMarginBegin" text="Updated at:"/>
+															<Text text = "Saturday 5/1/2021 at 10:30AM" />
+														</HBox>
+													</VBox>
+												</f:SimpleForm>
+											</HBox>
+
+										</VBox>
+
+									</HBox>
+									</IconTabFilter>
+								 </items>
+								</IconTabBar>
+
+						  	</HBox>
+						</VBox>                          
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
